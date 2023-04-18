@@ -24,3 +24,6 @@
 
 # Licensing
     This project is available under the MIT License. See the license file for more info.
+    
+# Small Disclaimer:
+It might not work on all controllers, I tested this on a blue plastic PS controller, it had like 14 buttons in total.
