@@ -1,0 +1,3 @@
+This lists all the changes within this "python application"
+Version 1.0.0
+The dawn of controller-for-windows
