@@ -518,4 +518,4 @@ def init_main_app():
 
 
 if __name__ == "__main__":
-    init_main_app()  # Already an admin here.
+    init_main_app()
