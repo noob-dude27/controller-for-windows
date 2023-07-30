@@ -1,5 +1,6 @@
 # The main program
 # This uses the generated "app_gui.py" file from pyuic6 and then hooked with commands from different scripts.
+# TODO: Figure out how to update the repository
 from PyQt6 import QtWidgets
 from PyQt6.QtWidgets import QMessageBox
 from pyjoystick.sdl2 import Joystick, run_event_loop
@@ -95,6 +96,7 @@ class App(QtWidgets.QMainWindow):
         self.ui.clear_bind_btn.clicked.connect(self.clear_keybind)
         self.ui.clear_all_binds_btn.clicked.connect(self.clear_all_keybinds)
         self.ui.launch_keyboard_btn.clicked.connect(self.launch_keyboard_widget)
+        self.ui.reset_first_preset_btn.clicked.connect(self.reset_first_preset)
 
         # Btn shortcuts
         self.ui.disable_btn.setShortcut("ctrl+d")
@@ -355,19 +357,60 @@ class App(QtWidgets.QMainWindow):
             self.ui.preset_to_use_list.insertItem(row, preset)
 
     def toggle_keybind_editing(self):
-        guis_to_toggle = [
-            self.ui.edit_control_list, self.ui.edit_keybind_list, self.ui.set_keybind_btn,
-            self.ui.clear_bind_btn, self.ui.clear_bind_btn, self.ui.clear_all_binds_btn]
-
-        # Disables editing PRESET_1 if selected since it's the default preset.
-        # You can't do anything if you clear the preset.
+        # 7/28/23: Okay, nevermind what that comment said. I am changing it because it's actually an annoying thing in the app.
+        # Also this app needs a design overhaul!
+        # Back then, before the july update. Preset 1 was not editable even though most of the controls are pre-configured.
+        # Because of that, it made the usage of the app somewhat annoying especially when the configs were just a little bit off.
         preset = self.ui.preset_to_use_list.currentText()
-        if preset == "PRESET_1":
-            for gui in guis_to_toggle:
-                gui.setDisabled(True)
+
+        # This time, Preset 2 and 3 cannot be reset to default because they start with nothing at all.
+        # I hope it doesn't backfire.
+        if preset != "PRESET_1":
+            self.ui.reset_first_preset_btn.setDisabled(True)
         else:
-            for gui in guis_to_toggle:
-                gui.setDisabled(False)
+            self.ui.reset_first_preset_btn.setDisabled(False)
+        
+    def reset_first_preset(self):
+        # I combined some code from 2 different functions in db_setup.py.
+        # Essentialy, it just loads the default configurations from preset 1 as if the database was freshly made.
+        # Then refreshes the mapping list
+        default_mapping = [
+            "'keyboard_pg_up'",
+            "'keyboard_pg_down'",
+            "'keyboard_pg_left'",
+            "'keyboard_pg_right'",
+            "'summon_keyboard'",
+            "'mouse_right_click'",
+            "'mouse_left_click'",
+            "'mouse_left_press'",
+            "'keyboard_ctrl_c'",
+            "'keyboard_alt_tab'",
+            "'keyboard_ctrl_a'",
+            "'mouse_move_up'",
+            "'mouse_move_down'",
+            "'mouse_move_left'",
+            "'mouse_move_right'",
+            "'keyboard_ctrl_v'",
+            "'keyboard_tab'",
+            "'keyboard_ctrl_x'",
+            "'mouse_scroll_up'",
+            "'mouse_scroll_down'",
+            "'Empty'",
+            "'Empty'",
+            "'keyboard_windows_btn'",
+            "'Empty'",
+            "'Empty'"
+        ]
+
+        table = "mapping"
+        columns = self.get_column("mapping")
+        
+        row = 1
+        for column, keybind in zip(columns, default_mapping):
+            print(table, column, keybind, row)
+            self.update_data(table, column, keybind, row)
+
+        self.refresh_mapping_list()
 
     def use_selected_preset(self):
         # Gets selected preset

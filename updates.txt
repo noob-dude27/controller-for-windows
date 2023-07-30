@@ -1,0 +1,14 @@
+Welcome to the update logs! Enjoy your read
+
+---- Version 2 ----
+Release Date: 7/30/23
++ Preset 1 was made editable. Testing it using a standard PS4 controller, most of the configurations were correct
+except for 2 buttons. I was dumb to make the first preset uneditable because I thought it was good enough until
+the PS controllers had minor variations in their actual system. As a result, I pushed this update.
++ README file was also updated with new disclaimers.
+
+---- Version 1 ----
++ Release Date: Unknown, sometime before 2023 New Year's eve.
+The dawn of controller for windows. This was originally made to be controlled with an unknown brand 
+of a Blue PS Controller that had 14 buttons in total. The controller was to replace the mouse and
+keyboard in the event of such peripherals malfunctioning or being missing.

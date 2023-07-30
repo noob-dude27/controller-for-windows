@@ -208,6 +208,9 @@ class Ui_MainWindow(object):
         self.clear_all_binds_btn = QtWidgets.QPushButton(parent=self.edit_binds_grp)
         self.clear_all_binds_btn.setGeometry(QtCore.QRect(10, 230, 81, 24))
         self.clear_all_binds_btn.setObjectName("clear_all_binds_btn")
+        self.reset_first_preset_btn = QtWidgets.QPushButton(parent=self.edit_binds_grp)
+        self.reset_first_preset_btn.setGeometry(QtCore.QRect(130, 130, 121, 24))
+        self.reset_first_preset_btn.setObjectName("reset_first_preset_btn")
         self.previewing_lbl = QtWidgets.QLabel(parent=self.mapping_grp)
         self.previewing_lbl.setGeometry(QtCore.QRect(10, 360, 221, 20))
         self.previewing_lbl.setObjectName("previewing_lbl")
@@ -241,7 +244,7 @@ class Ui_MainWindow(object):
         self.app_lbl.setObjectName("app_lbl")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 600, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -249,7 +252,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -281,12 +284,13 @@ class Ui_MainWindow(object):
         self.clear_bind_btn.setText(_translate("MainWindow", "Clear"))
         self.set_keybind_btn.setText(_translate("MainWindow", "Set Keybind"))
         self.clear_all_binds_btn.setText(_translate("MainWindow", "Clear All"))
+        self.reset_first_preset_btn.setText(_translate("MainWindow", "Reset to Default"))
         self.previewing_lbl.setText(_translate("MainWindow", "Previewing:"))
         self.in_use_lbl.setText(_translate("MainWindow", "In-Use:"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.mapping_tab), _translate("MainWindow", "Mapping"))
         self.version_grp.setTitle(_translate("MainWindow", "App Version"))
         self.version_lbl.setText(_translate("MainWindow", "Version Number:"))
-        self.version_input.setText(_translate("MainWindow", "1.0"))
+        self.version_input.setText(_translate("MainWindow", "2"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.version_tab), _translate("MainWindow", "Version"))
         self.app_lbl.setText(_translate("MainWindow", "Controller for Windows"))
 

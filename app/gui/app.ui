@@ -30,7 +30,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <property name="movable">
      <bool>false</bool>
@@ -689,6 +689,19 @@
          <string>Clear All</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="reset_first_preset_btn">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>130</y>
+          <width>121</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Reset to Default</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QLabel" name="previewing_lbl">
        <property name="geometry">
@@ -769,7 +782,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>1.0</string>
+        <string>2</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -806,7 +819,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

@@ -251,9 +251,10 @@ class TABLEcmds(DBcmds):
         # changes all the values of mapping table to empty
         table = "mapping"
         columns = self.get_column("mapping")
-        keyword = "'Empty'"
+        keybind = "'Empty'"
         for column in columns:
-            self.update_data(table, column, keyword, row)
+            print(table, column, keybind, row)
+            self.update_data(table, column, keybind, row)
 
     def create_tuning(self):
         # Creates adjustable tunings that can change the speed and feel of the controller when using the app.
@@ -298,4 +299,4 @@ def setup_table():
         print("controls.db already exists, setup aborted")
 
 if __name__ == "__main__":
-    setup_table()
+    pass

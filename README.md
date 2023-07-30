@@ -3,8 +3,8 @@ An experimental program that helps you navigate your computer with a controller,
 with keyboard shortcuts for easier navigation and use. You can also type using an on-screen keyboard.
 
 # How to install and run
-To install, simply download this repository. To run this project, simply open app.py and you will be
-greeted with a widget that says: 'Controller for windows'
+To install, simply download this repository. However, you must have python installed with a version of at least 3.10.
+To run this project, simply open app.py and you will be greeted with a widget that says: 'Controller for windows'
 
 # How to use
 app.py has already been preconfigured and the controls mapped to run properly. If you're not satisified
@@ -25,5 +25,6 @@ Mapping tab:
 # Licensing
 This project is available under the MIT License. See the license file for more info.
     
-# Small Disclaimer:
-It might not work on all controllers, I tested this on a blue plastic PS controller, it had like 14 buttons in total.
+# Disclaimers
+It might not work on all controllers, I tested this on a blue plastic PS controller from an unknown vendor, it had 14 buttons in total.
+This is also untested on multiple controllers, so usage with multiples is not guranteed. As of now (7/30/23) only PS controllers are being tested. Nintendo and Xbox Controllers might receive support very soon. But don't be too eager yet. 
