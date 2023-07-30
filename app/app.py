@@ -402,13 +402,14 @@ class App(QtWidgets.QMainWindow):
             "'Empty'"
         ]
 
+        # Damn it. I forgot the methods are from a different class!
         table = "mapping"
-        columns = self.get_column("mapping")
+        columns = table_cmds.get_column("mapping")
         
         row = 1
         for column, keybind in zip(columns, default_mapping):
             print(table, column, keybind, row)
-            self.update_data(table, column, keybind, row)
+            table_cmds.update_data(table, column, keybind, row)
 
         self.refresh_mapping_list()
 
